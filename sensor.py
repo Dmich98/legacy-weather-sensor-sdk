@@ -2,12 +2,12 @@ import random
 
 
 _MOCK_DATA = [
-    # Формат 1: Рядок
+    # Sensor 1 data format
     "Kyiv;+10.5C;78%;5.2m/s",
     "Lviv;-1.2C;92%;2.1m/s",
     "Odesa;+15.0C;65%;7.8m/s",
 
-    # Формат 2: Словник
+    # Sensor 2 data format
     {
         'location': 'Kharkiv',
         'data': {
@@ -15,7 +15,7 @@ _MOCK_DATA = [
             'humidity': '85%',
             'wind': {
                 'speed': '4.5 m/s',
-                'direction': 'NW'  # Додаткове поле, яке студенти мають ігнорувати
+                'direction': 'NW'  
             }
         }
     },
@@ -31,7 +31,7 @@ _MOCK_DATA = [
         }
     },
 
-    # Формат 3: Список кортежів
+    # Sensor 3 data format
     [
         ('city', 'Zaporizhzhia'),
         ('temp_celsius', 9.3),
@@ -52,10 +52,8 @@ def get_raw_data():
 
 
 if __name__ == '__main__':
-    print("Демонстрація роботи модуля sensor.py")
-    print("="*40)
     for i in range(5):
-        print(f"Виклик #{i+1}:")
+        print(f"Call #{i+1}:")
         raw_data = get_raw_data()
-        print(f"  Тип даних: {type(raw_data)}")
-        print(f"  Отримані дані: {raw_data}\n")
+        print(f"  Data type: {type(raw_data)}")
+        print(f"  Received data: {raw_data}\n")
