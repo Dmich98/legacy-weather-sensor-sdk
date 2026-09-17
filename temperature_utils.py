@@ -22,20 +22,15 @@ def calculate_feels_like(
     humidity: float,
     wind_speed: float,
 ) -> float:
-    vapor_pressure = (
-        humidity
-        / 100
-        * _VAPOR_PRESSURE_COEFFICIENT
-        * math.exp(
-            _VAPOR_PRESSURE_EXPONENT
-            * temperature
-            / (_VAPOR_PRESSURE_OFFSET + temperature)
-        )
+    humidity_ratio = humidity / 100
+
+    exponent = (
+        _VAPOR_PRESSURE_EXPONENT * temperature / (_VAPOR_PRESSURE_OFFSET + temperature)
     )
 
-    return (
-        temperature
-        + _HUMIDITY_FACTOR * vapor_pressure
-        - _WIND_FACTOR * wind_speed
-        - _APPARENT_TEMPERATURE_OFFSET
-    )
+    vapor_pressure = humidity_ratio * _VAPOR_PRESSURE_COEFFICIENT * math.exp(exponent)
+
+    humidity_effect = _HUMIDITY_FACTOR * vapor_pressure
+    wind_effect = _WIND_FACTOR * wind_speed
+
+    return temperature + humidity_effect - wind_effect - _APPARENT_TEMPERATURE_OFFSET

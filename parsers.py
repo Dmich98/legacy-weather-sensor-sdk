@@ -9,7 +9,7 @@ def parse_humidity(value: str | float) -> float:
     if isinstance(value, str):
         value = value.removesuffix("%").strip()
 
-    return int(value)
+    return float(value)
 
 
 def parse_wind_speed(value: str | float) -> float:
