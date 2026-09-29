@@ -1,6 +1,6 @@
 def _parse_value(value: str | float, suffix: str) -> float:
     if isinstance(value, str):
-        value = value.removesuffix(suffix).strip()
+        value = value.strip().removesuffix(suffix).strip()
 
     return float(value)
 
