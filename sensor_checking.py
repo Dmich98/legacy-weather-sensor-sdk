@@ -1,5 +1,5 @@
 def is_string_sensor(data) -> bool:
-    if not isinstance(data, str):
+    if not isinstance(data, str) or not data:
         return False
 
     # Four fields are the stable structural marker of the legacy string format.
@@ -9,9 +9,13 @@ def is_string_sensor(data) -> bool:
 
 
 def is_dict_sensor(data) -> bool:
-    return isinstance(data, dict)
+    return isinstance(data, dict) and bool(data)
 
 
 def is_tuple_list_sensor(data) -> bool:
     # The third legacy format encodes every field as a key-value tuple.
-    return isinstance(data, list) and all(isinstance(item, tuple) for item in data)
+    return (
+        isinstance(data, list)
+        and bool(data)
+        and all(isinstance(item, tuple) for item in data)
+    )
