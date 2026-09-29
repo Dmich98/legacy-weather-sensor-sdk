@@ -1,9 +1,9 @@
-from sensor_checking import (
+from .checks import (
     is_dict_sensor,
     is_string_sensor,
     is_tuple_list_sensor,
 )
-from sensor_types import SensorType
+from ..models import SensorType
 
 SENSOR_TYPE_CHECKS = {
     is_string_sensor: SensorType.STRING,

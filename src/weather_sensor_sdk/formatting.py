@@ -1,5 +1,5 @@
-from sensor_types import SensorData
-from temperature_utils import celsius_to_fahrenheit
+from .calculation import celsius_to_fahrenheit
+from .models import SensorData
 
 
 def format_weather(normalized_data: SensorData, feels_like: float) -> str:

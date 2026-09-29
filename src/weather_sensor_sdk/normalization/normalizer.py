@@ -1,10 +1,10 @@
-from sensor_converters import (
+from ..detection import detect_sensor_type
+from ..models import SensorData, SensorType
+from .converters import (
     normalize_dict_sensor,
     normalize_string_sensor,
     normalize_tuple_list_sensor,
 )
-from sensor_detector import detect_sensor_type
-from sensor_types import SensorData, SensorType
 
 NORMALIZERS = {
     SensorType.STRING: normalize_string_sensor,

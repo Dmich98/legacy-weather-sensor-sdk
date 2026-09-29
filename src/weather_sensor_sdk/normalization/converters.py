@@ -1,5 +1,5 @@
-from parsers import parse_humidity, parse_temperature, parse_wind_speed
-from sensor_types import SensorData
+from ..models import SensorData
+from ..parsing import parse_humidity, parse_temperature, parse_wind_speed
 
 
 def to_normalized_sensor(

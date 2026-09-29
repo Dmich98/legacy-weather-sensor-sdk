@@ -1,7 +1,7 @@
-from format_weather import format_weather
-from sensor import get_raw_data
-from sensor_normalizer import normalize_sensor
-from temperature_utils import calculate_feels_like
+from weather_sensor_sdk.calculation import calculate_feels_like
+from weather_sensor_sdk.formatting import format_weather
+from weather_sensor_sdk.normalization import normalize_sensor
+from mocks.sensor_api import get_raw_data
 
 
 def main() -> None:
