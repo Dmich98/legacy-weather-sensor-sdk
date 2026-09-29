@@ -9,8 +9,11 @@ dependencies = []
 [dependency-groups]
 dev = ["pytest>=9.1.1", "pytest-cov>=7.1.0"]
 
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
 [tool.coverage.run]
-omit = ["test_*.py", "tests/*", "sensor.py", "main.py"]
+omit = ["test_*.py", "tests/*", "mocks/*", "__init__.py"]
 
 [tool.coverage.report]
 show_missing = true
